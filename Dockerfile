@@ -4,6 +4,7 @@ COPY package*.json ./
 RUN npm install
 COPY tsconfig.json ./
 COPY src ./src
+COPY web ./web
 RUN npm run build
 
 FROM node:24-alpine
@@ -12,5 +13,6 @@ ENV NODE_ENV=production
 COPY package*.json ./
 RUN npm install --omit=dev
 COPY --from=build /app/dist ./dist
+COPY --from=build /app/web ./web
 EXPOSE 8080
 CMD ["node", "dist/server.js"]
