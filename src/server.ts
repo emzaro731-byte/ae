@@ -4,6 +4,8 @@ import cors from 'cors';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { Pool } from 'pg';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const app = express();
 const port = Number(process.env.PORT ?? 8080);
@@ -20,6 +22,9 @@ const pool = process.env.DATABASE_URL
 app.use(cors());
 app.use(express.json({ limit: '2mb' }));
 
+const webDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../web');
+app.use(express.static(webDir));
+
 app.get('/health', async (_req, res) => {
   let database = 'not_configured';
   if (pool) {
@@ -31,6 +36,18 @@ app.get('/health', async (_req, res) => {
     }
   }
   res.json({ ok: database !== 'error', service: 'veylora-backend', database });
+});
+
+app.get('/api', (_req, res) => {
+  res.json({
+    service: 'veylora-backend',
+    version: '1.0.0',
+    endpoints: {
+      health: 'GET /health',
+      signup: 'POST /v1/auth/signup',
+      login: 'POST /v1/auth/login'
+    }
+  });
 });
 
 function signToken(userId: string) {
@@ -83,5 +100,7 @@ app.post('/v1/auth/login', async (req, res) => {
     return res.status(500).json({ error: 'Unable to sign in' });
   }
 });
+
+app.get('*', (_req, res) => res.sendFile(path.join(webDir, 'index.html')));
 
 app.listen(port, () => console.log(`Veylora backend listening on ${port}`));
