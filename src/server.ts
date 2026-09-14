@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { timingSafeEqual } from 'node:crypto';
 import { Pool } from 'pg';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,9 +11,11 @@ import { fileURLToPath } from 'node:url';
 const app = express();
 const port = Number(process.env.PORT ?? 8080);
 const jwtSecret = process.env.JWT_SECRET ?? '';
+const backendApiKey = process.env.BACKEND_API_KEY ?? '';
 
-if (!jwtSecret && process.env.NODE_ENV === 'production') {
-  throw new Error('JWT_SECRET is required in production');
+if (process.env.NODE_ENV === 'production') {
+  if (!jwtSecret) throw new Error('JWT_SECRET is required in production');
+  if (!backendApiKey) throw new Error('BACKEND_API_KEY is required in production');
 }
 
 const pool = process.env.DATABASE_URL
@@ -42,6 +45,7 @@ app.get('/api', (_req, res) => {
   res.json({
     service: 'veylora-backend',
     version: '1.0.0',
+    authentication: 'API key required for /v1/* routes',
     endpoints: {
       health: 'GET /health',
       signup: 'POST /v1/auth/signup',
@@ -49,6 +53,22 @@ app.get('/api', (_req, res) => {
     }
   });
 });
+
+function apiKeyMatches(provided: string, expected: string): boolean {
+  const providedBuffer = Buffer.from(provided);
+  const expectedBuffer = Buffer.from(expected);
+  return providedBuffer.length === expectedBuffer.length && timingSafeEqual(providedBuffer, expectedBuffer);
+}
+
+function requireApiKey(req: express.Request, res: express.Response, next: express.NextFunction) {
+  const provided = req.header('x-api-key') ??
+    (req.header('authorization')?.startsWith('Bearer ') ? req.header('authorization')!.slice(7) : '');
+
+  if (!backendApiKey || !apiKeyMatches(provided, backendApiKey)) {
+    return res.status(401).json({ error: 'Valid API key is required' });
+  }
+  next();
+}
 
 function signToken(userId: string) {
   return jwt.sign({ sub: userId }, jwtSecret || 'development-only-secret', { expiresIn: '30d' });
@@ -61,6 +81,8 @@ function requireDb(res: express.Response): Pool | null {
   }
   return pool;
 }
+
+app.use('/v1', requireApiKey);
 
 app.post('/v1/auth/signup', async (req, res) => {
   const db = requireDb(res);
@@ -101,6 +123,7 @@ app.post('/v1/auth/login', async (req, res) => {
   }
 });
 
-app.get('*', (_req, res) => res.sendFile(path.join(webDir, 'index.html')));
+// Express 5 requires a named wildcard; this matches / as well as nested routes.
+app.get('/{*splat}', (_req, res) => res.sendFile(path.join(webDir, 'index.html')));
 
 app.listen(port, () => console.log(`Veylora backend listening on ${port}`));
