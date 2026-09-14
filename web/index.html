@@ -1,57 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="VEYLORA — a modern AI-powered social and communication platform.">
-  <title>VEYLORA — Connect. Create. Discover.</title>
-  <style>
-    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f5f7ff;background:#060812}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0,#263c88 0,transparent 34%),radial-gradient(circle at 90% 15%,#5a246f 0,transparent 28%),#060812;min-height:100vh}.wrap{max-width:1120px;margin:auto;padding:24px}.nav{display:flex;justify-content:space-between;align-items:center;padding:8px 0 30px}.brand{font-size:24px;font-weight:900;letter-spacing:.08em}.navlinks{display:flex;gap:22px}.navlinks a{color:#cbd3ee;text-decoration:none;font-size:14px}.hero{padding:76px 0 90px;max-width:850px}.eyebrow{display:inline-flex;border:1px solid #34457e;background:#111936;color:#aebdff;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.hero h1{font-size:clamp(48px,9vw,92px);line-height:.94;letter-spacing:-.055em;margin:22px 0}.gradient{background:linear-gradient(90deg,#fff,#a9b9ff,#e8a9ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:19px;line-height:1.7;color:#b8c2df;max-width:700px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0 0}.btn{display:inline-block;text-decoration:none;color:white;background:#6172ff;padding:14px 19px;border-radius:13px;font-weight:800;box-shadow:0 12px 35px rgba(78,95,220,.25)}.btn.alt{background:#10162b;border:1px solid #303b62;box-shadow:none}.section{padding:42px 0}.section h2{font-size:34px;margin:0 0 12px}.section>p{color:#9fa9c7;line-height:1.65}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:25px}.card{background:rgba(12,18,38,.72);border:1px solid #202b4d;border-radius:20px;padding:24px;backdrop-filter:blur(12px)}.icon{font-size:25px}.card h3{margin:14px 0 8px}.card p{color:#aab4d1;line-height:1.6;margin-bottom:0}.status{display:flex;align-items:center;gap:10px;margin-top:20px;color:#b9c4df}.dot{width:9px;height:9px;border-radius:50%;background:#61e6a3;box-shadow:0 0 16px #61e6a3}.api{margin-top:25px;border:1px solid #253158;background:#0b1124;border-radius:18px;padding:18px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#aebcff;font-size:14px;line-height:2}.cta{margin:55px 0 30px;padding:40px;border-radius:24px;border:1px solid #354477;background:linear-gradient(135deg,rgba(75,93,190,.28),rgba(105,46,122,.18))}.cta h2{margin-top:0}.footer{border-top:1px solid #1b2440;margin-top:55px;padding:25px 0 15px;color:#687391;font-size:13px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}@media(max-width:650px){.navlinks{display:none}.hero{padding-top:45px}.hero h1{font-size:54px}.wrap{padding:18px}}
-  </style>
-</head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="VEYLORA — Connect. Create. Discover."><meta name="theme-color" content="#070a13"><title>VEYLORA — Connect. Create. Discover.</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f7f8ff;background:#070a13;line-height:1.6}a{color:inherit}.container{width:min(1120px,92%);margin:auto}.nav{position:sticky;top:0;z-index:10;background:rgba(7,10,19,.8);backdrop-filter:blur(16px);border-bottom:1px solid #182039}.navin{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;letter-spacing:.16em;font-size:21px}.links{display:flex;gap:28px}.links a{text-decoration:none;color:#aab4ca;font-size:14px}.links a:hover{color:#fff}.hero{position:relative;overflow:hidden;padding:105px 0 85px}.glow{position:absolute;width:620px;height:620px;border-radius:50%;right:-180px;top:-240px;background:radial-gradient(circle,rgba(100,116,255,.3),transparent 68%);pointer-events:none}.pill{display:inline-block;padding:7px 13px;border:1px solid #34447a;border-radius:999px;background:#101832;color:#b4c0ff;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.hero h1{font-size:clamp(48px,8vw,88px);line-height:.98;letter-spacing:-.06em;max-width:900px;margin:20px 0}.gradient{background:linear-gradient(90deg,#fff,#a9b9ff,#e8a9ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:700px;color:#aeb8d0;font-size:19px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-block;text-decoration:none;padding:13px 20px;border-radius:13px;font-weight:800;background:#6473ff;box-shadow:0 12px 35px rgba(90,105,240,.22)}.btn.alt{background:#101728;border:1px solid #2b3657;box-shadow:none}.status{display:flex;gap:10px;align-items:center;color:#aeb8ce;margin-top:25px}.dot{width:9px;height:9px;border-radius:50%;background:#65e6a6;box-shadow:0 0 15px #65e6a6}.section{padding:75px 0}.section h2{font-size:37px;letter-spacing:-.035em;margin:0 0 10px}.lead{color:#929db5;max-width:680px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:35px}.card{padding:25px;border:1px solid #202a43;border-radius:20px;background:linear-gradient(180deg,#101728,#0c111e)}.icon{font-size:24px}.card h3{margin:13px 0 7px}.card p{margin:0;color:#929db5}.api{margin-top:28px;padding:22px;border:1px solid #27335a;border-radius:18px;background:#0b1120;font:14px/2 ui-monospace,SFMono-Regular,Menlo,monospace;color:#aebcff}.cta{margin:20px 0 75px;padding:52px;border:1px solid #344474;border-radius:25px;background:radial-gradient(circle at 90% 20%,rgba(100,114,255,.2),transparent 42%),#0e1424}.cta h2{font-size:40px;line-height:1.1;margin:0 0 10px}.cta p{color:#9ca7bd;max-width:650px}.footer{border-top:1px solid #182039;padding:25px 0;color:#69748c;font-size:13px;display:flex;justify-content:space-between;gap:15px}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.links{display:none}.hero{padding:75px 0}.hero h1{font-size:54px}.grid{grid-template-columns:1fr}.section{padding:55px 0}.cta{padding:32px 24px;margin-bottom:50px}.cta h2{font-size:32px}.footer{flex-direction:column}}
+</style></head>
 <body>
-  <main class="wrap">
-    <nav class="nav">
-      <div class="brand">VEYLORA</div>
-      <div class="navlinks"><a href="#features">Features</a><a href="#api">API</a><a href="/health">Status</a></div>
-    </nav>
-
-    <section class="hero">
-      <span class="eyebrow">The VEYLORA platform</span>
-      <h1>Connect. <span class="gradient">Create.</span> Discover.</h1>
-      <p>A modern home for the VEYLORA experience — built to connect the mobile app with a dedicated backend, authentication, data services and future features.</p>
-      <div class="buttons">
-        <a class="btn" href="#features">Explore VEYLORA</a>
-        <a class="btn alt" href="/health">Check system status</a>
-      </div>
-      <div class="status"><span class="dot"></span><span>Backend service online</span></div>
-    </section>
-
-    <section class="section" id="features">
-      <h2>Everything in one platform.</h2>
-      <p>VEYLORA is designed with a dedicated API so the website and mobile clients can share the same services.</p>
-      <div class="grid">
-        <article class="card"><div class="icon">🔐</div><h3>Secure accounts</h3><p>Email signup and login with password hashing and JWT authentication.</p></article>
-        <article class="card"><div class="icon">💬</div><h3>Communication</h3><p>A foundation for chats, messages, profiles and social features across VEYLORA.</p></article>
-        <article class="card"><div class="icon">⚡</div><h3>Dedicated API</h3><p>A Node.js backend built to serve the VEYLORA app and website from one platform.</p></article>
-        <article class="card"><div class="icon">🗄️</div><h3>Own data layer</h3><p>PostgreSQL support keeps application data in your own backend infrastructure.</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="api">
-      <h2>Developer API</h2>
-      <p>Useful endpoints exposed by the VEYLORA backend.</p>
-      <div class="api">GET&nbsp;&nbsp; /health<br>GET&nbsp;&nbsp; /api<br>POST /v1/auth/signup<br>POST /v1/auth/login</div>
-      <div class="buttons"><a class="btn" href="/api">View API information</a></div>
-    </section>
-
-    <section class="cta">
-      <h2>Built for the VEYLORA app.</h2>
-      <p>Deploy this repository on your hosting provider and the same service can serve this website and the backend API.</p>
-      <a class="btn" href="/health">Verify deployment</a>
-    </section>
-
-    <footer class="footer"><span>© 2026 VEYLORA</span><span>Powered by the VEYLORA backend</span></footer>
-  </main>
-</body>
-</html>
+<header class="nav"><div class="container navin"><a class="logo" href="#top">VEYLORA</a><nav class="links"><a href="#features">Features</a><a href="#api">API</a><a href="#about">About</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="glow"></div><div class="container"><span class="pill">The VEYLORA platform</span><h1>Connect. <span class="gradient">Create.</span> Discover.</h1><p>A modern home for the VEYLORA experience — connecting the mobile app with dedicated authentication, data services, APIs and future features.</p><div class="actions"><a class="btn" href="#features">Explore VEYLORA</a><a class="btn alt" href="#api">View API</a></div><div class="status"><span class="dot"></span>VEYLORA platform ready</div></div></section>
+<section class="section" id="features"><div class="container"><h2>Everything in one platform.</h2><p class="lead">A clean foundation for a connected digital experience, designed to grow with your application.</p><div class="grid"><article class="card"><div class="icon">🔐</div><h3>Secure accounts</h3><p>Email signup and login with password hashing and JWT authentication.</p></article><article class="card"><div class="icon">💬</div><h3>Communication</h3><p>A foundation for profiles, chats, messages and social features.</p></article><article class="card"><div class="icon">⚡</div><h3>Dedicated API</h3><p>Node.js services for the VEYLORA app, website and future clients.</p></article><article class="card"><div class="icon">🗄️</div><h3>Data ready</h3><p>PostgreSQL support for application data that can scale with the product.</p></article></div></div></section>
+<section class="section" id="api"><div class="container"><h2>Developer API</h2><p class="lead">Core endpoints exposed by the VEYLORA backend.</p><div class="api">GET&nbsp;&nbsp; /health<br>GET&nbsp;&nbsp; /api<br>POST /v1/auth/signup<br>POST /v1/auth/login</div></div></section>
+<section class="container" id="about"><div class="cta"><h2>Built for VEYLORA.</h2><p>Your website can live directly on GitHub Pages while the backend continues to power your application separately.</p><a class="btn" href="#top">Back to top</a></div></section>
+</main><footer class="container footer"><span>© 2026 VEYLORA</span><span>Connect. Create. Discover.</span></footer>
+</body></html>
